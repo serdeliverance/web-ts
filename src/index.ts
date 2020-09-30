@@ -2,6 +2,9 @@ import { User } from './models/User'
 
 let user = new User({ name: 'pepe', age: 20 })
 
-user.set({ name: 'pepe2', age: 25 })
+user.on('change', () => console.log(`I'm a callback`))
+user.on('change', () => console.log(`I'm another crazy callback`))
+user.on('mickeyCallbacksYeah!', () => console.log(`I'm another callback`))
 
-console.log(user.get('name'))
+console.log(user)
+user.trigger('change')
