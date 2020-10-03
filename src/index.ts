@@ -1,10 +1,7 @@
 import { User } from './models/User'
 
-let user = new User({ name: 'pepe', age: 20 })
+let user = new User({ name: 'NEW RECORD', age: 16 })
 
-user.on('change', () => console.log(`I'm a callback`))
-user.on('change', () => console.log(`I'm another crazy callback`))
-user.on('mickeyCallbacksYeah!', () => console.log(`I'm another callback`))
+user.set({ name: 'NEW NAME', age: 33 })
 
-console.log(user)
-user.trigger('change')
+user.save()
