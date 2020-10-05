@@ -1,11 +1,11 @@
-export class Attributes {
-  constructor(private data: UserProps) {}
+export class Attributes<T> {
+  constructor(private data: T) {}
 
-  get(propName: string): string | number {
-    return this.data[propName]
+  get<K extends keyof T>(key: K): T[K] {
+    return this.data[key]
   }
 
-  set(update: UserProps): void {
+  set(update: T): void {
     Object.assign(this.data, update)
   }
 }
