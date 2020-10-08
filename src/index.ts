@@ -2,6 +2,10 @@ import { User } from './models/User'
 
 let user = new User({ name: 'NEW RECORD', age: 16 })
 
-user.events.on('change', () => {
-  console.log('change')
+console.log(user.get('name'))
+
+user.on('change', () => {
+  console.log('User was changed')
 })
+
+user.set({ name: 'New name' })
