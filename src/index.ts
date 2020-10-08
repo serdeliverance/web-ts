@@ -1,11 +1,9 @@
 import { User } from './models/User'
 
-let user = new User({ name: 'NEW RECORD', age: 16 })
+let user = new User({ id: 1 })
 
-console.log(user.get('name'))
-
-user.on('change', () => {
-  console.log('User was changed')
+user.on('save', () => {
+  console.log(user)
 })
 
-user.set({ name: 'New name' })
+user.save()
