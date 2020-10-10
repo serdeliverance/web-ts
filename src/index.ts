@@ -1,9 +1,7 @@
 import { User } from './models/User'
 
-let user = User.buildUser({ id: 1 })
+let collection = User.buildUserCollection()
 
-user.on('save', () => {
-  console.log(user)
-})
+collection.on('change', () => console.log(collection))
 
-user.save()
+collection.fetch()
