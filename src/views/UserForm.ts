@@ -21,9 +21,10 @@ export class UserForm {
   onSetNameClick = (): void => {
     let input = this.parent.querySelector('input')
 
-    let name = input.value
-
-    this.model.set({ name })
+    if (input) {
+      let name = input.value
+      this.model.set({ name })
+    }
   }
 
   onSetAgeClick = (): void => {

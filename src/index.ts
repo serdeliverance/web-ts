@@ -3,6 +3,11 @@ import { User } from './models/User'
 
 let user = User.buildUser({ name: 'NAME', age: 20 })
 
-let userForm = new UserForm(document.getElementById('root'), user)
+let root = document.getElementById('root')
 
-userForm.render()
+if (root) {
+  let userForm = new UserForm(root, user)
+  userForm.render()
+} else {
+  throw new Error('Root element not found')
+}
